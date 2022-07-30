@@ -3,14 +3,14 @@ import request from '@/utils/request'
 export function getRoleList(params) {
     return request({
         url: '/sys/role',
-        params
+        params,
     })
 }
 
 export function deleteRole(id) {
     return request({
         url: `/sys/role/${id}`,
-        method: 'delete'
+        method: 'delete',
     })
 }
 
@@ -18,12 +18,12 @@ export function updateRole(data) {
     return request({
         url: `/sys/role/${data.id}`,
         method: 'put',
-        data
+        data,
     })
 }
 export function getRoleDetail(id) {
     return request({
-        url: `/sys/role/${id}`
+        url: `/sys/role/${id}`,
     })
 }
 
@@ -31,12 +31,21 @@ export function addRole(data) {
     return request({
         url: `/sys/role/`,
         method: 'post',
-        data
+        data,
     })
 }
 
 export function getCompanyInfo(companyId) {
     return request({
-        url: `/company/${companyId}`
+        url: `/company/${companyId}`,
+    })
+}
+
+// 给角色分配权限
+export function assignPerm(data) {
+    return request({
+        url: '/sys/role/assignPrem',
+        method: 'put',
+        data,
     })
 }

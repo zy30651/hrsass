@@ -6,7 +6,7 @@
         <span>我是title</span>
       </template>
       <!-- <el-button slot="after" type="primary">导入excel</el-button> -->
-      <template v-slot:after >
+      <template v-slot:after>
         <el-button type="primary" size="small">导入Excel</el-button>
         <el-button type="primary" size="small">导出Excel</el-button>
       </template>
@@ -18,15 +18,19 @@
 </template>
 
 <script>
+const obj = {
+  created() {
+    alert(1)
+  },
+}
 import { mapGetters } from 'vuex'
 // import PageTools from '@/components/PageTools'
 export default {
   name: 'Dashboard',
+  mixins: [obj],
   computed: {
-    ...mapGetters([
-      'name'
-    ])
-  }
+    ...mapGetters(['name']),
+  },
 }
 </script>
 

@@ -2,7 +2,7 @@
 import Layout from '@/layout'
 export default {
     path: '/approvals',
-    // name: 'approvals',
+    name: 'approvals',
     component: Layout,
     children: [{
         path: '',
@@ -10,7 +10,7 @@ export default {
             import ('@/views/approvals'),
         meta: {
             title: '审批',
-            icon: 'tree-table'
-        }
-    }]
+            icon: 'tree-table',
+        },
+    }, ],
 }

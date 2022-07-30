@@ -3,7 +3,7 @@ import Layout from '@/layout'
 
 export default {
     path: '/social',
-    // name: 'social',
+    name: 'social_securitys',
     component: Layout,
     children: [{
         path: '',
@@ -11,7 +11,7 @@ export default {
             import ('@/views/social'),
         meta: {
             title: '社保',
-            icon: 'table'
-        }
-    }]
+            icon: 'table',
+        },
+    }, ],
 }

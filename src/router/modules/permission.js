@@ -3,6 +3,7 @@ import Layout from '@/layout'
 
 export default {
     path: '/permission',
+    name: 'permission',
     component: Layout,
     children: [{
         path: '',
@@ -10,7 +11,7 @@ export default {
             import ('@/views/permission'),
         meta: {
             title: '权限设置',
-            icon: 'lock'
-        }
-    }]
+            icon: 'lock',
+        },
+    }, ],
 }

@@ -4,7 +4,7 @@ import { resetRouter } from '@/router'
 // 状态
 const state = {
     token: getToken(), // 设置token为共享状态 初始化vuex的时候 就先从缓存中读取
-    userInfo: {} // 这里定义一个空对象 为什么要定义空对象
+    userInfo: {}, // 这里定义一个空对象 为什么要定义空对象
 }
 const mutations = {
     setToken(state, token) {
@@ -24,7 +24,7 @@ const mutations = {
     },
     removeUseInfo(state) {
         state.userInfo = {}
-    }
+    },
 }
 const actions = {
     async login(context, data) {
@@ -55,12 +55,12 @@ const actions = {
             // 但是加了命名空间的子模块 怎么调用另一个加了命名空间的子模块的mutations
             // 加了命名空间的context指的不是全局的context
             // mutations名称 载荷 payload 第三个参数  { root: true } 调用根级的mutations或者action
-            // context.commit('permission/setRoutes', [], { root: true })
-    }
+        context.commit('permission/setRoutes', [], { root: true })
+    },
 }
 export default {
     namespaced: true,
     state,
     mutations,
-    actions
+    actions,
 }

@@ -24,26 +24,30 @@ import '@/icons' // icon
 import '@/permission' // permission control
 import * as directives from '@/directives'
 
+import CheckPermission from '@/mixin/checkPermission'
+
 // 注册自定义指令
-Object.keys(directives).forEach(key => {
+Object.keys(directives).forEach((key) => {
     Vue.directive(key, directives[key])
 })
 
 // 注册过滤器
-Object.keys(filters).forEach(key => {
-    Vue.filter(key, filters[key])
-})
-
-// set ElementUI lang to EN
+Object.keys(filters).forEach((key) => {
+        Vue.filter(key, filters[key])
+    })
+    //
+    // set ElementUI lang to EN
 Vue.use(ElementUI, { locale })
     // 如果想要中文版 element-ui，按如下方式声明
     // Vue.use(ElementUI)
 Vue.use(Components)
+    // 全局混入--所有组件都有一个检查的方法
+Vue.mixin(CheckPermission)
 Vue.config.productionTip = false
 
 new Vue({
     el: '#app',
     router,
     store,
-    render: (h) => h(App)
+    render: (h) => h(App),
 })

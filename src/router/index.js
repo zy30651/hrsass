@@ -43,14 +43,14 @@ export const constantRoutes = [{
             path: '/login',
             component: () =>
                 import ('@/views/login/index'),
-            hidden: true
+            hidden: true,
         },
 
         {
             path: '/404',
             component: () =>
                 import ('@/views/404'),
-            hidden: true
+            hidden: true,
         },
 
         {
@@ -62,8 +62,8 @@ export const constantRoutes = [{
                 name: 'Dashboard',
                 component: () =>
                     import ('@/views/dashboard/index'),
-                meta: { title: '首页', icon: 'dashboard' }
-            }]
+                meta: { title: '首页', icon: 'dashboard' },
+            }, ],
         },
         {
             path: '/import',
@@ -72,11 +72,11 @@ export const constantRoutes = [{
             children: [{
                 path: '', // 表示默认二级路由
                 component: () =>
-                    import ('@/views/import')
-            }]
+                    import ('@/views/import'),
+            }, ],
         },
         // 404 page must be placed at the end !!!
-        { path: '*', redirect: '/404', hidden: true }
+        { path: '*', redirect: '/404', hidden: true },
     ]
     // 动态路由
 export const asyncRoutes = [
@@ -87,13 +87,14 @@ export const asyncRoutes = [
     attendancesRouter,
     salarysRouter,
     settingRouter,
-    socialRouter
+    socialRouter,
 ]
-const createRouter = () => new Router({
-    // mode: 'history', // require service support
-    scrollBehavior: () => ({ y: 0 }),
-    routes: [...constantRoutes, ...asyncRoutes]
-})
+const createRouter = () =>
+    new Router({
+        // mode: 'history', // require service support
+        scrollBehavior: () => ({ y: 0 }),
+        routes: [...constantRoutes],
+    })
 
 const router = createRouter()
 
